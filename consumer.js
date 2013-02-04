@@ -1,11 +1,11 @@
 require("nodetime").profile();
 
-var context = require('rabbit.js').createContext();
+var zmq = require('zmq')
+  , sock = zmq.socket('pull');
+
 var start;
 var count = 0;
 
-var zmq = require('zmq')
-  , sock = zmq.socket('pull');
 
 sock.connect('tcp://127.0.0.1:3000');
 console.log('Consumer connected to port 3000');
