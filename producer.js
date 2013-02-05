@@ -6,6 +6,13 @@ var zmq 	= require('zmq'),
 var start, end;
 var count = 0;
 
+//Workaround to avoid Heroku resetting the app for not binding to the designated port
+if(process.env.PORT) {
+	console.log("heroku workaround");
+	net = require("net");
+	net.createServer().listen(process.env.PORT);
+}
+
 var timeMs = (!!process.argv[2] ? parseInt(process.argv[2]) : 10000);
 
 sock.bindSync('tcp://ec2-46-137-6-37.eu-west-1.compute.amazonaws.com:33333');
