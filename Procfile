@@ -1,1 +1,1 @@
-web: node --prof consumer.js
+worker: node --prof consumer.js
