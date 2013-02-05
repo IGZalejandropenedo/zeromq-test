@@ -8,8 +8,8 @@ var count = 0;
 
 var timeMs = (!!process.argv[2] ? parseInt(process.argv[2]) : 10000);
 
-sock.bindSync('tcp://127.0.0.1:3000');
-console.log('Producer bound to port 3000');
+sock.bindSync('tcp://ec2-46-137-6-37.eu-west-1.compute.amazonaws.com:33333');
+console.log('Producer bound to port 33333');
 
 start = new Date();
 end = start.getTime() + timeMs;

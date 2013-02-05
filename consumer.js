@@ -7,8 +7,8 @@ var start;
 var count = 0;
 
 
-sock.connect('tcp://127.0.0.1:3000');
-console.log('Consumer connected to port 3000');
+sock.connect('tcp://ec2-46-137-6-37.eu-west-1.compute.amazonaws.com:33333');
+console.log('Consumer connected to port 33333');
 
 sock.on('message', function(msg){
 	var d = JSON.parse(msg);
