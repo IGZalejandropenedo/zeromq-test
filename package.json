@@ -3,6 +3,7 @@
   "version": "0.0.1",
 
   "dependencies": {
+    "zmq": "2.2.x",
     "nodetime": "0.6.x"
   },
   
