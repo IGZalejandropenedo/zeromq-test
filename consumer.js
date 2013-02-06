@@ -12,8 +12,8 @@ if(process.env.PORT) {
 	net = require("net");
 	net.createServer().listen(process.env.PORT);
 }
-
-sock.connect('tcp://ec2-46-137-6-37.eu-west-1.compute.amazonaws.com:33333');
+//sock.connect('tcp://ec2-46-137-6-37.eu-west-1.compute.amazonaws.com:33333');
+sock.connect('tcp://46.137.6.37:33333');
 console.log('Consumer connected to port 33333');
 
 sock.on('message', function(msg){

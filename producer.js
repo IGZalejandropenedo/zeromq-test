@@ -15,7 +15,8 @@ if(process.env.PORT) {
 
 var timeMs = (!!process.argv[2] ? parseInt(process.argv[2]) : 10000);
 
-sock.bindSync('tcp://ec2-46-137-6-37.eu-west-1.compute.amazonaws.com:33333');
+//sock.bindSync('tcp://ec2-46-137-6-37.eu-west-1.compute.amazonaws.com:33333');
+sock.bindSync('tcp://46.137.6.37:33333');
 console.log('Producer bound to port 33333');
 
 start = new Date();
