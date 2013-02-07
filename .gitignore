@@ -164,6 +164,7 @@ pip-log.txt
 
 # Nodejs modules
 node_modules
+*.log
 
 # Sublime text project files
 *.sublime*

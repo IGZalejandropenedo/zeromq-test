@@ -5,6 +5,8 @@ var zmq = require('zmq')
 
 var start;
 var count = 0;
+var host = 'tcp://' + (!!process.argv[2] ? process.argv[2] : "127.0.0.1")
+var port = ":" + (!!process.argv[3] ? process.argv[3] : "3000");
 
 //Workaround to avoid Heroku resetting the app for not binding to the designated port
 if(process.env.PORT) {
@@ -12,9 +14,8 @@ if(process.env.PORT) {
 	net = require("net");
 	net.createServer().listen(process.env.PORT);
 }
-//sock.connect('tcp://ec2-46-137-6-37.eu-west-1.compute.amazonaws.com:33333');
-sock.connect('tcp://46.137.6.37:33333');
-console.log('Consumer connected to port 33333');
+sock.connect(host + port);
+console.log('Consumer connected to ' + (host + port));
 
 sock.on('message', function(msg){
 	var d = JSON.parse(msg);
