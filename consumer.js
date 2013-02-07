@@ -18,19 +18,23 @@ console.log('Consumer connected to ' + (host + port));
 sock.connect(host + port);
 
 sock.on('message', function(msg){
-	var d = JSON.parse(msg);
-	
-	if(!start) {
-		start = new Date();
-		console.log("Start Receiving", start.getTime());
-	}
-	
-	if(d.end) {
-		var end = (new Date()).getTime();
-		console.log("End Receiving: " +  end + " ms", "Time: " + (end - start) + " ms" ,"Count:" + count);
-		process.exit(0);
-	} else {
-		count++;
+	try{
+		var d = JSON.parse(msg);
+		
+		if(!start) {
+			start = new Date();
+			console.log("Start Receiving", start.getTime());
+		}
+		
+		if(d.end) {
+			var end = (new Date()).getTime();
+			console.log("End Receiving: " +  end + " ms", "Time: " + (end - start) + " ms" ,"Count:" + count);
+			process.exit(0);
+		} else {
+			count++;
+		}
+	} catch(e){
+		console.log("Error: ", e);
 	}
 	//console.log("Message", data)
 });
