@@ -17,9 +17,9 @@ var timeMs = (!!process.argv[2] ? parseInt(process.argv[2]) : 10000);
 var host = 'tcp://' + (!!process.argv[3] ? process.argv[3] : "127.0.0.1")
 var port = ":" + (!!process.argv[4] ? process.argv[4] : "3000");
 
+console.log('Producer bound to ' + (host + port));
 sock.bindSync(host + port);
 
-console.log('Producer bound to ' + (host + port));
 
 start = new Date();
 end = start.getTime() + timeMs;

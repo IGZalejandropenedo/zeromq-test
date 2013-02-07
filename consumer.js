@@ -14,8 +14,8 @@ if(process.env.PORT) {
 	net = require("net");
 	net.createServer().listen(process.env.PORT);
 }
-sock.connect(host + port);
 console.log('Consumer connected to ' + (host + port));
+sock.connect(host + port);
 
 sock.on('message', function(msg){
 	var d = JSON.parse(msg);
